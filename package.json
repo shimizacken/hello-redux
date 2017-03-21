@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm-run-all webpack-server",
+    "webpack": "webpack --watch",
+    "webpack-server": "webpack-dev-server --colors --hot --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +27,7 @@
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
+    "npm-run-all": "^4.0.2",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.2"
   }
