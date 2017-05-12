@@ -1,5 +1,5 @@
 import mainStore from './storeConfig';
-import UsersLoader from './services/data/usersLoader';
+import UsersLoader from './services/api/usersLoader';
 
 let rootDiv = document.createElement('div');
 let idAttr = document.createAttribute('id');
