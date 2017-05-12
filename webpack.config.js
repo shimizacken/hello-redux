@@ -1,17 +1,19 @@
-var webpack = require('webpack');
-var path = require('path');
+"use strict"
+
+let webpack = require('webpack');
+let path = require('path');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './app.js',
+    entry: [
+        './src/index.js'
+    ],
     output: {
+        publicPath: '/',
         path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js'
+        filename: 'bundle.dev.js'
     },
-     //plugins: [
-        //new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js" }),
-        //new HappyPack({ loaders: ['babel-loader?presets[]=es2015']}),
-    //],
-     module: {
+    module: {
         rules: [
             {
                 test: /\.js$/,
@@ -19,9 +21,21 @@ module.exports = {
             }
         ]
     },
-     devServer: {
-         inline: true,
-         port: 7557
-     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            title: 'Hello Redux!',
+            inject: true,
+            minify: {}
+        }),
+        //new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.bundle.js" }),
+        //new HappyPack({ loaders: ['babel-loader?presets[]=es2015']}),
+    ],
+    devtool: 'source-map',
+    devServer: {
+        contentBase: './',
+        inline: true,
+        port: 7557
+    },
     watch: true
 };

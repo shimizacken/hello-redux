@@ -697,8 +697,8 @@ module.exports = g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__applyMiddleware__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__compose__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_warning__ = __webpack_require__(5);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["a"]; });
-/* unused harmony reexport combineReducers */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__createStore__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__combineReducers__["a"]; });
 /* unused harmony reexport bindActionCreators */
 /* unused harmony reexport applyMiddleware */
 /* unused harmony reexport compose */
@@ -1060,7 +1060,7 @@ function bindActionCreators(actionCreators, dispatch) {
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(5);
-/* unused harmony export default */
+/* harmony export (immutable) */ __webpack_exports__["a"] = combineReducers;
 
 
 
@@ -1300,13 +1300,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(7);
 
 
-const reducer = function () {};
+const userReducer = (state = {}, action) => {
+    return state;
+};
 
-const store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["a" /* createStore */])(reducer, 0);
+const tweetsReducer = (state = {}, action) => {
+    return state;
+};
+
+const reducers = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["a" /* combineReducers */])({
+    user: userReducer,
+    tweets: tweetsReducer
+});
+
+const store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_redux__["b" /* createStore */])(reducers, {
+    user: {
+        name: "Shimi",
+        age: 39
+    },
+    tweets: []
+});
 
 store.subscribe(() => {
+
     console.log('store changed', store.getState());
 });
+
+store.dispatch({ type: "INC", payload: 1 });
+store.dispatch({ type: "INC", payload: 1 });
+store.dispatch({ type: "INC", payload: 1 });
+store.dispatch({ type: "INC", payload: 1 });
+store.dispatch({ type: "DEC", payload: 1 });
 
 /***/ })
 /******/ ]);
