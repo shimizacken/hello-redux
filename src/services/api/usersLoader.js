@@ -8,7 +8,7 @@ export default class UsersLoader {
                 resolve(
                     require('../mock/data/users')
                 );
-            }, 1000);
+            }, 0);
         });
     }
 }

@@ -1,14 +1,13 @@
 import { combineReducers, createStore } from 'redux';
-import {userReducer} from './reducers/userReducer';
-import {usersReducer} from './reducers/usersReducer';
-import {tweetsReducer} from './reducers/tweetReducer';
+import {usersReducer, userReducer} from './reducers/userReducer';
 
 const reducers = combineReducers({
     user: userReducer,
-    users: usersReducer,
-    tweets: tweetsReducer
+    users: usersReducer
 });
 
-const mainStore = createStore(reducers, {});
+const mainStore = createStore(reducers, {
+    users: []
+});
 
 export default mainStore;
