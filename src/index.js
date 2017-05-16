@@ -1,5 +1,6 @@
 import mainStore from './storeConfig';
 import UsersLoader from './services/api/usersLoader';
+require('./styles/main.scss');
 
 console.log(mainStore.getState());
 

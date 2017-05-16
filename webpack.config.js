@@ -25,9 +25,8 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     'style-loader',
-                    'css-loader?importLoaders=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-                    'postcss-loader',
-                    'sass-loader',
+                    'css-loader',
+                    'sass-loader'
                 ],
             }
         ]
@@ -37,7 +36,11 @@ module.exports = {
             template: './src/index.html',
             title: 'Hello Redux!',
             inject: true,
-            minify: {}
+            minify: {},
+            files: {
+                css: ['style.css'],
+                js: ['bundle.js'],
+            }
         }),
         new ExtractTextPlugin({
             filename: '/style.css',
