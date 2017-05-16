@@ -13,14 +13,14 @@ mainStore.subscribe(() => {
         mainStore.dispatch({ type: "USER_REMOVE_SUCCESS", payload: id });
     }
 
-    if (state.users) {
+    if (state.user) {
 
         document.getElementById('currentUsers').innerText = "";
 
-        state.users.map(function (user, index) {
+        state.user.map(function (u, index) {
 
-            document.getElementById('currentUsers').innerHTML += `${index + 1}. ${user.name} `;
-            document.getElementById('currentUsers').innerHTML += `<span onclick="removeUser('${user.id}');" style="cursor: pointer; color: red;">X</span>`;
+            document.getElementById('currentUsers').innerHTML += `${index + 1}. ${u.name} `;
+            document.getElementById('currentUsers').innerHTML += `<span onclick="removeUser('${u.id}');" style="cursor: pointer; color: red;">X</span>`;
             document.getElementById('currentUsers').innerHTML += `<br />`;
 
         });
