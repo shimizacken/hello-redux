@@ -34,13 +34,36 @@ const hashCode = function () {
     return random.replace(".", "");
 };
 
+function clearForm() {
+    document.getElementById('userNameError').innerText = "";
+    document.getElementById('ageError').innerText = "";
+    document.getElementById('username').value = "";
+    document.getElementById('userage').value = "";
+}
+
 document.getElementById('submitUser').addEventListener('click', function () {
+
+    let userName = document.getElementById('username').value;
+    let age = document.getElementById('userage').value;
+
+    if (!userName) {
+        document.getElementById('userNameError').innerText = "must fill user name!";
+    }
+
+    if (!age) {
+        document.getElementById('ageError').innerText = "must fill age!";
+    }
+
+    if (!userName || !age) {
+        return;
+    }
 
     let users = {
         id: hashCode(),
-        name: document.getElementById('username').value,
-        age: document.getElementById('userage').value,
+        name: userName,
+        age: age
     };
 
     mainStore.dispatch({ type: "USER_ADDED_SUCCESS", payload: users });
+    clearForm();
 });
