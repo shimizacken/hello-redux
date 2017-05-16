@@ -1,12 +1,16 @@
 import mainStore from './storeConfig';
 import UsersLoader from './services/api/usersLoader';
 
+console.log(mainStore.getState());
+
 mainStore.subscribe(() => {
 
     let state = mainStore.getState();
 
-    const removeUser = function (id) {
-        debugger;
+    console.log(state);
+
+    window.removeUser = function (id) {
+        mainStore.dispatch({ type: "USER_REMOVE_SUCCESS", payload: id });
     }
 
     if (state.users) {
