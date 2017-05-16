@@ -5,8 +5,6 @@ const reducers = combineReducers({
     user: usersReducer
 });
 
-const mainStore = createStore(reducers, {
-    users: []
-});
+const mainStore = createStore(reducers, {});
 
 export default mainStore;

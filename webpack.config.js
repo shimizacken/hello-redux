@@ -7,7 +7,7 @@ let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: [
-        'webpack-dev-server/client?http://localhost:7557',
+        'webpack-hot-middleware/client',
         './src/index.js'
     ],
     output: {
@@ -32,6 +32,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             title: 'Hello Redux!',
