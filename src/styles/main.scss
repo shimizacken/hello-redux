@@ -1,7 +1,18 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 35px;
 }
 
 .error {
     color: red;
+}
+
+input[type="text"], input[type="button"] {
+    padding: 5px;
+}
+
+.user-form-container, .generate-users-container {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 15px;
 }

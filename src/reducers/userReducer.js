@@ -12,3 +12,16 @@ export const usersReducer = (state = [], action) => {
             return state;
     }
 };
+
+export const bulkusersReducer = (state = [], action) => {
+
+    switch (action.type) {
+        case 'MULTIPLE_USERS_ADDED_SUCCESS':
+            return [action.payload]
+        case 'MULTIPLE_USERS_APPEND_SUCCESS':
+            let newState = Object.assign(state);
+            return newState.concat(action.payload);
+        default:
+            return state;
+    }
+};

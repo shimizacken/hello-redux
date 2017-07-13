@@ -1,8 +1,9 @@
-import { combineReducers, createStore } from 'redux';
-import {usersReducer} from './reducers/userReducer';
+import {combineReducers, createStore} from 'redux';
+import {usersReducer, bulkusersReducer} from './reducers/userReducer';
 
 const reducers = combineReducers({
-    user: usersReducer
+    user: usersReducer,
+    bulkusers: bulkusersReducer
 });
 
 const mainStore = createStore(reducers, {});
